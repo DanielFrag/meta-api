@@ -45,3 +45,7 @@ node server
 ##### OBS
 
 O possível retorno do status http 401, exigido no arquivo "Contato.yaml", depende de uma aplicação que tenha políticas de autenticação.
+
+#### Rotas
+
+O arquivo "meta-api.postman_collection.json" contém as rotas e os exemplos de chamadas para a API. Este arquivo pode ser importado pelo software Postman. Cada rota contém: a url do recurso, os parâmetros de cabeçalho e os parâmetros do corpo da requisição, além dos exemplos de resposta.

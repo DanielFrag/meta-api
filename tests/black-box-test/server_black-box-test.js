@@ -104,6 +104,9 @@ describe('Server test', function() {
 					if (err) {
 						return done(err);
 					}
+					chai.expect(res).to.have.status(201);
+					chai.expect(res).to.have.header('Location');
+					chai.expect(res.header.location).exist;
 					cb();
 				});
 		};
@@ -163,6 +166,21 @@ describe('Server test', function() {
 				valor: contact.valor,
 				obs: contact.obs + 't'
 			})
+			.set({
+				'Authorization': userAuth
+			})
+			.end((err, res) => {
+				if (err) {
+					return done(err);
+				}
+				chai.expect(res).to.have.status(204);
+				done();
+			});
+	});
+	it('Should delete a contact', (done) => {
+		chai
+			.request(server)
+			.delete(`/${contactId}`)
 			.set({
 				'Authorization': userAuth
 			})
