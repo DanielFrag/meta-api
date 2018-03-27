@@ -10,7 +10,7 @@ Os requisitos da API estão descritos no arquivo "Contato.yaml".
 
 #### Instalar dependencias
 
-Digite no terminal o comando:
+No diretório raiz do projeto, digite no terminal o comando:
 ```
 $ npm i
 ```
@@ -24,20 +24,20 @@ Caso ele ainda não tenha sido iniciado, basta digitar no terminal o comando:
 ```
 $ mongod
 ```
-Logo após iniciar o banco os testes podem ser iniciados. Digite no terminal o comando:
+Logo após iniciar o banco os testes podem ser iniciados. No diretório raiz do projeto, digite no terminal o comando:
 ```
 $ npm test ./tests/black-box-test/server_black-box-test.js
 ```
 
 #### Levantar a API
 
-Para levantar a API passando o nome e a chave de usuário (usadas para autenticação de quem solicita os recursos) defina as variáveis USER_ID e USER_KEY, digitando por exemplo:
+Para levantar a API passando o nome e a chave de usuário (usadas para autenticação de quem solicita os recursos) defina as variáveis USER_ID e USER_KEY, digitando, no diretório raiz do projeto, o comando: por exemplo:
 ```
 $ USER_ID=userId USER_KEY=userPass node server
 ```
 Assim as requisições passam a exigir a presença da string em base64 contendo o dado "userId:userPass" ("dXNlcklkOnVzZXJQYXNz") no header "Authorization".   
 
-Para levantar a API sem qualquer uso de autenticação basta rodar o comando:
+Para levantar a API sem qualquer uso de autenticação basta rodar o comando no diretório raiz do projeto:
 ```
 node server
 ```
