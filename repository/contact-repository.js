@@ -2,29 +2,31 @@ const mongoose = require('mongoose');
 const Contact = mongoose.model('Contact');
 module.exports = {
 	async createContact(contact) {
-		return Contact.create(contact);
+		const c = await Contact.create(contact);
+		return c.toDTO();
 	},
 	async getContact(contactId) {
-		return Contact
-			.findById(contactId)
-			.lean();
+		const c = await Contact.findById(contactId);
+		return c.toDTO();
 	},
 	async getContactList(skip, limit) {
-		return Contact
+		const cList = await Contact
 			.find({})
 			.sort({nome: 1})
 			.skip(skip)
-			.limit(limit)
-			.lean();
+			.limit(limit);
+		const cDTO = [];
+		cList.forEach(c => {
+			cDTO.push(c.toDTO());
+		});
+		return cDTO;
 	},
 	async removeContact(contactId) {
-		return Contact
-			.findByIdAndRemove(contactId)
-			.lean();
+		const c = await Contact.findByIdAndRemove(contactId);
+		return c.toDTO();
 	},
 	async updateContact(contactId, fieldsToUpdate) {
-		return Contact
-			.findByIdAndUpdate(contactId, fieldsToUpdate)
-			.lean();
+		const c = Contact.findByIdAndUpdate(contactId, fieldsToUpdate);
+		return c.cDTO();
 	}
 }

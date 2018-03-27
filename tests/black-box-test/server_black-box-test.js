@@ -83,7 +83,7 @@ describe('Server test', function() {
 					return done(err);
 				}
 				chai.expect(res).to.have.status(200);
-				chai.expect(res.body._id).exist;
+				chai.expect(res.body.id).exist;
 				chai.expect(res.body.nome).to.be.equal(contact.nome);
 				chai.expect(res.body.canal).to.be.equal(contact.canal);
 				chai.expect(res.body.valor).to.be.equal(contact.valor);

@@ -8,4 +8,13 @@ const contactSchema = new Schema({
 }, {
 	versionKey: false
 });
+contactSchema.method('toDTO', function() {
+	return {
+		id: this._id,
+		nome: this.nome,
+		canal: this.canal,
+		valor: this.valor,
+		obs: this.obs
+	}
+});
 mongoose.model('Contact', contactSchema);
