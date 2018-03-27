@@ -24,7 +24,7 @@ Caso ele ainda não tenha sido iniciado, basta digitar no terminal o comando:
 ```
 $ mongod
 ```
-Logo após iniciar o banco a API pode ser iniciada. Digite no terminal o comando:
+Logo após iniciar o banco os testes podem ser iniciados. Digite no terminal o comando:
 ```
 $ npm test ./tests/black-box-test/server_black-box-test.js
 ```
@@ -35,7 +35,7 @@ Para levantar a API passando o nome e a chave de usuário (usadas para autentica
 ```
 $ USER_ID=userId USER_KEY=userPass node server
 ```
-Assim as requisições passam a exigir a presença da string em base64 contendo o dado "userId:userPass" ("dXNlcklkOnVzZXJQYXNz").   
+Assim as requisições passam a exigir a presença da string em base64 contendo o dado "userId:userPass" ("dXNlcklkOnVzZXJQYXNz") no header "Authorization".   
 
 Para levantar a API sem qualquer uso de autenticação basta rodar o comando:
 ```
@@ -44,4 +44,4 @@ node server
 
 ##### OBS
 
-O possível retorno do status http 401 depende de uma aplicação que tenha políticas de autenticação.
+O possível retorno do status http 401, exigido no arquivo "Contato.yaml", depende de uma aplicação que tenha políticas de autenticação.
